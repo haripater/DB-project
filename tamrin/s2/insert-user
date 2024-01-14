@@ -1,0 +1,1 @@
+INSERT INTO `users`(`name`, `create_at`) VALUES ('john','1710162290')
