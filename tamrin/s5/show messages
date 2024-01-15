@@ -1,0 +1,33 @@
+        <?php
+        const DB_SERVER = "localhost";
+        const DB_USER = "root";
+        const DB_PASS = "";
+        const DB_NAME = "test";
+        $con = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
+        if(mysqli_connect_errno()){
+    	  die("database connection failed: ".mysqli_connect_error()."(".mysqli_connect_errno().")"
+        );}
+
+        global $namesOfUsers; // An array containing usernames and IDs
+        
+        $query_send = "SELECT * FROM `messages` ";
+        $query = mysqli_query($con,$query_send);
+        if($query){
+            if($query->num_rows != 0 ) {
+                while($fetch = mysqli_fetch_assoc($query)){
+                  if(!empty($fetch["deleted_at"])){
+                    $name = array_search($namesOfUsers,$fetch["user_id"])
+                    $o  = '<div>';
+                    $o .= '<div>Name: ' . $name . '</div>';
+                    $o .= '<div>Text: ' . $fetch["text"] . '</div>';
+                    $o .= '</div>';
+                  }else{
+                    $o = 'message is deleted';
+                  }
+
+                }
+                echo $o;
+            }else{echo 'Error! :(';}
+        }
+        mysqli_close($con);
+        ?>
