@@ -8,7 +8,7 @@
     	  die("database connection failed: ".mysqli_connect_error()."(".mysqli_connect_errno().")"
         );}
 
-        $query_send = "INSERT INTO `product`(`name`, `quantity`, `price`, `status`) VALUES ('wooly hat','20','7.50','1') ";
+        $query_send = "INSERT INTO `products`(`name`, `quantity`, `price`, `status`) VALUES ('wooly hat','20','7.50','1') ";
         $query = mysqli_query($con,$query_send);
         if($query){
             if($query->num_rows != 0 ) {
