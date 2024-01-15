@@ -1,0 +1,1 @@
+UPDATE `users` SET `deleted_at` = '1701025951' WHERE id = 1
