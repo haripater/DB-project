@@ -8,7 +8,7 @@
     	  die("database connection failed: ".mysqli_connect_error()."(".mysqli_connect_errno().")"
         );}
 
-        $query_send = "UPDATE `product` SET `quantity`='0' WHERE id = 1 ";
+        $query_send = "UPDATE `products` SET `quantity`='0' WHERE id = 1 ";
         $query = mysqli_query($con,$query_send);
         if($query){
             if($query->num_rows != 0 ) {
