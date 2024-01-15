@@ -1,0 +1,20 @@
+        <?php
+        const DB_SERVER = "localhost";
+        const DB_USER = "root";
+        const DB_PASS = "";
+        const DB_NAME = "test";
+        $con = mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_NAME);
+        if(mysqli_connect_errno()){
+    	  die("database connection failed: ".mysqli_connect_error()."(".mysqli_connect_errno().")"
+        );}
+
+        $date = time();
+        $query_send = "INSERT INTO `users`(`name`, `create_at`) VALUES ('john',$date) ";
+        $query = mysqli_query($con,$query_send);
+        if($query){
+            if($query->num_rows != 0 ) {
+                // Run a code
+            }else{echo 'Error! :(';}
+        }
+        mysqli_close($con);
+        ?>
